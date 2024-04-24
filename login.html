@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Blend - Login</title>
     <link rel="stylesheet" href="style3.css">
-    <!-- Google Sign-In API -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <!-- Client ID for Google Sign-In -->
-    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
     <nav class="navbar">
@@ -22,32 +18,28 @@
 
     <div class="container2">
         <h2>Login</h2>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="name">Name <span>*</span>:</label>
-                <input type="text" id="name" name="name" required>
+        <!-- Sign In Form -->
+        <div class="container" id="signIn">
+            <h1 class="form-title">Sign In</h1>
+            <form method="post" action="login.php">
+              <div class="input-group">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" name="email" id="email" placeholder="Email" required>
+                  <label for="email">Email</label>
+              </div>
+              <div class="input-group">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" name="password" id="password" placeholder="Password" required>
+                  <label for="password">Password</label>
+              </div>
+              <input type="submit" class="btn" value="Sign In" name="signIn">
+            </form>
+            <div class="links">
+              <p>Don't have an account yet? <a href="signup.html">Sign Up</a></p>
             </div>
-            <div class="form-group">
-                <label for="email">Email <span>*</span>:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="dob">Date of Birth <span>*</span>:</label>
-                <input type="date" id="dob" name="dob" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number <span>*</span>:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <div class="or-divider">
-            <span>Or</span>
-        </div>
-        <div class="google-signin">
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
         </div>
     </div>
+    
     <div class="container3">
         <div class="customization-button" id="customize-button" style="display: none;">
             <a href="customization.html" class="btn btn-secondary">Customize</a>
@@ -64,25 +56,5 @@
             <li><a href="https://www.linkedin.com/in/manav-rajput-029062242/">LinkedIn</a></li>
         </ul>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get the login form
-            const loginForm = document.getElementById('login-form');
-    
-            // Add event listener to the form submit event
-            loginForm.addEventListener('submit', function (event) {
-                // Prevent the default form submission
-                event.preventDefault();
-    
-                // Show the customize button
-                document.getElementById('customize-button').style.display = 'block';
-    
-                // Reset the form fields
-                loginForm.reset();
-            });
-        });
-    </script>
-    
-    
 </body>
 </html>
